@@ -24,7 +24,6 @@ class TestAppBasic:
         day_after_tomorrow = current_date + timedelta(days=2)
         format_date = day_after_tomorrow.strftime("%Y%m%d")
 
-        # 假设返回的是字典，直接提取forecast_detail
         response = ApiRequest.send_get(url="https://pda.weather.gov.hk/locspc/data/fnd_e.xml")
         response_json = response.json()
         forecast_list = response_json.get("forecast_detail", [])

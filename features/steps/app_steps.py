@@ -7,12 +7,12 @@ from hamcrest import assert_that, equal_to
 # Global variable: Store API endpoint retrieved from the page
 global_api_endpoint = None
 
-@given("Launch the app and enter the home page")
+@given("Launch the app")
 def step_impl(context):
     """Start the driver and open the app's home page"""
     context.driver = DriverManager.start_driver()  # Store driver in context for other steps
 
-@when('Click the "{btn_name}" button (accessibility id: {accessibility_id})')
+@when('Click "{btn_name}" (accessibility id: {accessibility_id})')
 def step_impl(context, btn_name, accessibility_id):
     print(f"{accessibility_id}")
     menu_btn = context.driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value=accessibility_id)
